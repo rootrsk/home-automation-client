@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Arduino from "./components/Arduino";
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
+import ProjectDetails from "./components/ProjectDetails";
+import './styles/styles.css'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+		<BrowserRouter>
+			<Switch>
+				<Route path='/' component={Dashboard} exact/>
+				<Route path='/arduino' component={Arduino} />
+				<Route path='/login' component={Login} />
+				<Route path='/details' component={ProjectDetails} />
+				<Route path='/about-us' component={About} />
+			</Switch>
+		</BrowserRouter>
+    );
 }
-
 export default App;
