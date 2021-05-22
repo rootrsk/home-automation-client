@@ -64,6 +64,12 @@ body {
   border: none;
   outline: none;
   color: white;
+  cursor: pointer;
+  min-height: 47px;
+}
+
+.login-div button:hover {
+  background: #01091480;
 }
 
 .login-div p {
@@ -363,6 +369,100 @@ body {
   padding: 10px 10px;
   margin: 15px 10px;
   border-radius: 7px;
+}
+
+.arduino-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 90vh;
+}
+
+.relay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #00295e;
+  color: white;
+  width: 1000px;
+  margin: auto;
+  padding: 30px 10px;
+  border-radius: 7px;
+}
+
+.switch_container {
+  display: -ms-grid;
+  display: grid;
+}
+
+.switch_container p {
+  margin-top: 10px;
+}
+
+.arduino_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 95%;
+  margin: auto;
+}
+
+.led {
+  width: 200px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: #262D47;
+  margin: 20px 0px;
+  border-radius: 7px;
+  padding: 20px;
+}
+
+.led p {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.buzzer {
+  width: 200px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: #262D47;
+  margin: 20px 0px;
+  border-radius: 7px;
+  padding: 20px;
+}
+
+.buzzer p {
+  margin-top: 10px;
+  color: #fff;
+}
+
+.sensors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: #262D47;
+  padding: 20px;
+  margin: 50px;
+  width: 90%;
+  color: #ffffff;
 }
 
 @media only screen and (max-width: 1076px) {

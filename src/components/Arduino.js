@@ -4,6 +4,7 @@ import random from 'random';
 // const END_POINT = 'http://localhost:3002'
 const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
 
+
 function Arduino() {
     const [switch_1, setSwitch1] = useState(false)
     const [switch_2, setSwitch2] = useState(false)
@@ -13,7 +14,7 @@ function Arduino() {
     const [switch_6, setSwitch6] = useState(false)
     const [switch_7, setSwitch7] = useState(false)
     const [switch_8, setSwitch8] = useState(false)
-
+    const [normal,setNormal] = useState(true)
     const [sensors,setSensors] = useState({
         temp: 25,
         humidity: 40,
@@ -59,7 +60,6 @@ function Arduino() {
     
     useEffect(()=>{
         const socket = socketClient(END_POINT, {
-            path: '/websocket/'
         })
         socket.on('connect',()=>{
             socket.emit('join',{username: 'arduino',password:'rootrsk',room:'123'})
@@ -76,6 +76,11 @@ function Arduino() {
             const humidity = random.int(20,55)
             const co = random.int(20,55)
             const ch = random.int(20,55)
+            if(temp>50 || humidity > 50 || co>50 || ch >50){
+                setNormal(false)
+            }else{
+                setNormal(true)
+            }
             const time  =  Date.now()
             sensorHandler({temp ,humidity,co,ch,time})
             socket.emit('sensor-send',{temp,humidity,co,ch,time})
@@ -83,25 +88,64 @@ function Arduino() {
         // eslint-disable-next-line
     }, [])
     return (
-        <div>
+        <div className='arduino-page'>
             <h1>Arduino</h1>
-            <div>
-                <p>Switch 1 : {switch_1 ? 'On' : 'Off'}</p>
-                <p>Switch 2 : {switch_2 ? 'On' : 'Off'}</p> 
-                <p>Switch 3 : {switch_3 ? 'On' : 'Off'}</p>
-                <p>Switch 4 : {switch_4 ? 'On' : 'Off'}</p>  
-                <p>Switch 5 : {switch_5 ? 'On' : 'Off'}</p> 
-                <p>Switch 6 : {switch_6 ? 'On' : 'Off'}</p>  
-                <p>Switch 7 : {switch_7 ? 'On' : 'Off'}</p>
-                <p>Switch 8 : {switch_8 ? 'On' : 'Off'}</p>  
+            <div className='arduino_header'>
+                <div className="led">
+                    <div className={normal?'led-green':'led-off'}></div>
+                    <p>Led </p>
+                </div>
+                <div className='relay'>
+                    <div className='switch_container'>
+                        <div className={switch_1?'led-green':'led-off'}></div>
+                        <p>Switch 1</p>
+                    </div>
+                    <div className='switch_container'>
+                        <div className={switch_2?'led-green':'led-off'}></div>
+                        <p>Switch 2</p>
+                    </div>
+                    <div className='switch_container'>
+                        <div className={switch_3?'led-green':'led-off'}></div>
+                        <p>Switch 3</p>
+                    </div>
+                    <div className='switch_container'>
+                        <div className={switch_4?'led-green':'led-off'}></div>
+                        <p>Switch 4</p>
+                    </div>
+                    <div className='switch_container'>
+                        <div className={switch_5?'led-green':'led-off'}></div>
+                        <p>Switch 5</p>
+                    </div>
+                    <div className='switch_container'>
+                        <div className={switch_6?'led-green':'led-off'}></div>
+                        <p>Switch 6</p>
+                    </div>
+                    <div className='switch_container'>
+                        <div className={switch_7?'led-green':'led-off'}></div>
+                        <p>Switch 7</p>
+                    </div>
+                    <div className='switch_container'>
+                        <div className={switch_8?'led-green':'led-off'}></div>
+                        <p>Switch 8</p>
+                    </div> 
+                </div>
+
+                <div className='buzzer'>
+                    <div className={normal?'led-green':'led-off'}></div>
+                    <p>Buzzer </p>
+                </div>
+
             </div>
-            <div>
+            
+            <div className='sensors'>
                 <p>Temp : {sensors.temp}</p>
                 <p>Humidity : {sensors.humidity}</p>
                 <p>CO : {sensors.co}</p>
                 <p>CH4 : {sensors.ch}</p>
                 <p>{new Date(sensors.time).toLocaleTimeString()}</p>
             </div>
+            
+            
         </div>
     )
 }

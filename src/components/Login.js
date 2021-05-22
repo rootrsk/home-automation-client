@@ -1,7 +1,8 @@
-import { Avatar } from '@material-ui/core'
+import { Avatar, CircularProgress, LinearProgress } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
+import Spinner from '../assets/images/spinner.svg'
 
-function Login({loginHandler,error,connected}) {
+function Login({loginHandler,error,connected,loading}) {
     const [username,setUserName] = useState('rootrsk1')
     const [password,setPassword] = useState('rootrsk')
     const [room,setRoom] = useState('123')
@@ -33,8 +34,11 @@ function Login({loginHandler,error,connected}) {
                     value={password}
                 />
                 {!connected && <p>Connecting to Socket</p> }
-                
-                <button onClick={()=>loginHandler({username,password,room})}>Login</button>
+               <button 
+                    onClick={()=>{
+                        loginHandler({username,password,room})}}
+                    >{loading?<LinearProgress color="secondary" />:'Login'}
+                </button>
                 <p className='error'>{error}</p>
             </div>
         </div>

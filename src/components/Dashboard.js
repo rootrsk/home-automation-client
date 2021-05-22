@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import socketClient from "socket.io-client";
 import BoardStatus from './BoardStatus';
 import Radial from './charts/Radial';
+import RealtimeChart from './charts/RealtimeChart';
 import Temperature from './charts/Temperature';
 import Header from './Header';
 import Login from './Login';
@@ -74,7 +75,6 @@ function Dashboard() {
 
     useEffect(()=>{
         const socket = socketClient(END_POINT, {
-            path: '/websocket/'
         })
         socket.on('connect',()=>{
             setConnected(true)
@@ -91,12 +91,18 @@ function Dashboard() {
         })
         socket.on('login',({error,status,user})=>{
             setError('')
-            setLoading(false)
+            // setLoading(false)
+            
             if(status===200){
-                setError('')
-                setUser(user)
-                setLogin(true)
+                setTimeout(() => {
+                    
+                    setError('')
+                    setUser(user)
+                    setLogin(true)
+                    setLoading(false)
+                }, 2000);
             } else{
+                setLoading(false)
                 setError(error)
             }
             
@@ -140,6 +146,7 @@ function Dashboard() {
             socket.emit('switch-trigger',{switch_no,status})
         }
         loginHandler = async ({username,password,room}) => {
+            setLoading(true)
             setError('')
             socket.emit('join',{username,password,room})
         }
@@ -154,7 +161,6 @@ function Dashboard() {
         <div className='dashboard'>
             <Header user={user} />
             <BoardStatus status={ardunioStatus} />
-            <h2>{login}</h2>
             <div className='button_containers'>
                 <SwitchButton buttonHandler={switchHandler} buttonStatus={switch_1} buttonNumber={1} title='Button 1'/>
                 <SwitchButton buttonHandler={switchHandler} buttonStatus={switch_2} buttonNumber={2} title='Button 2'/>
@@ -167,8 +173,14 @@ function Dashboard() {
             </div>
             {console.log(loading)}
             <div>
-                <Temperature data={sensors.temp} time={sensors.time} title='Room Temperature' name='temp' key='ddd'/> 
-
+                {/* <Temperature data={sensors.temp} time={sensors.time} title='Room Temperature' name='temp' key='ddd'/> te */}
+                <div >
+                    <RealtimeChart  data ={sensors.temp} title='Temperature'/>
+                    <RealtimeChart  data ={sensors.humidity} title="Humidity" />
+                    <RealtimeChart  data ={sensors.co} title="Carbon MonoOxide" />
+                    <RealtimeChart  data ={sensors.ch} title="Methane" />
+                </div>
+                
                 <div className='meters'>
                     <Radial data ={sensors.temp} name='Temperature'/>
                     <Radial data ={sensors.humidity} name='Humidity'/>
