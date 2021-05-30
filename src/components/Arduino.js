@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect, useState } from "react";
 import socketClient from "socket.io-client";
 import random from 'random';

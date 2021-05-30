@@ -1,7 +1,8 @@
 import React from "react";
 import Chart from "react-apexcharts";
-
-export default props => {
+// eslint-disable-next-line 
+export default (props) => {
+     
     const options = {
         chart: {
             id: 'realtime',
@@ -117,15 +118,8 @@ export default props => {
         },
     },
     yaxis: {
-    //   labels: {
-    //     formatter: val => val.toFixed(0)
-    //   },
-        title: { text: "Value" },
-        
-    },
-    yaxis: {
-        max: 60,
-        min: 20,
+        max: props.max ? props.max : 60,
+        min: props.min ? props.min : 20,
         tickAmount: 5,
         labels: {
             show: true,

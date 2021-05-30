@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
 $font-stack: Helvetica,
 sans-serif;
-$primary-color: #333;
+$primary-color: #3a456d;
 $secondary-color: #262D47;
 *{
     padding: 0;
@@ -11,7 +11,8 @@ $secondary-color: #262D47;
 }
 body {
     font: 100% $font-stack;
-    color: $primary-color;
+    background: $primary-color;
+
 }
 
 // Login
@@ -149,8 +150,8 @@ body {
     justify-content: space-between;
     place-items: center;
     background: $secondary-color;
-    padding: 30px 0px;
-    margin: 10px;
+    padding: 20px 0px;
+    margin: 0px 10px;
     border-radius: 7px;
 }
 .arduino-status_title{
@@ -175,7 +176,7 @@ body {
     padding: 0;
     margin: 0;
     background: #3a456d;
-    padding: 0px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
 }
 .button_containers{
     display: flex;
@@ -185,6 +186,28 @@ body {
     background: $secondary-color;
     padding: 10px 10px;
     margin: 15px 10px;
+    text-align: center;
+}
+.button_containerss {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    // overflow-x: auto;
+    border-radius: 7px;
+    background: $secondary-color;
+    padding: 50px 10px;
+    margin: 15px 10px;
+    max-width: 700px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    // margin-left: 5px;
+    // margin-right: 5px;
+}
+.third{
+    width:33%;
 }
 .button_div{
     background-color: rgb(80, 80, 80);
@@ -193,6 +216,7 @@ body {
     place-items: center;
     position: relative;
     padding: 10px 30px;
+    
 }
 .led-container{
     margin: 0px 0px 20px 0px;
@@ -391,6 +415,79 @@ body {
     margin: 50px;
     width: 90%;
     color: #ffffff;
+}
+
+// Profile
+
+.profile-details{
+    width: 80%;
+    margin: auto;
+    background-color: #00295e;
+    border-radius: 7px;
+    padding: 10px 20px;
+    color: #ffffff;
+    margin-top: 70px;
+    p{
+        margin: 10px 0px;
+    }
+}
+.user-details-flexbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+// About
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    color: #ffffff;
+}
+.card{
+    width: 300px;
+    height: 430px;
+    background: #262D47;
+    border-radius: 5px;
+    position: relative;
+    margin: 10px;
+}
+.card-profile{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    margin-top: 20px;
+}
+.card-description{
+    margin-top: 10px;
+    a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .card-title{
+        text-align: center;
+        font-weight: 700;
+        font-size: 25px;
+    }
+    .card-icon{
+        display: grid;
+        justify-content: center;
+        place-items: center;
+        font-size: 100px;
+        background-color: rgb(2, 37, 66);
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        padding: 20px 0px;
+        border-radius: 5px;
+        color: #fff;
+        a{
+            margin-left: 20px;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    }
 }
 @media only screen and (max-width:1076px){
     .button_containers{

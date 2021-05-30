@@ -3,8 +3,8 @@ import RealtimeLineChart from "./RealtimeLineChart";
 
 const TIME_RANGE_IN_MILLISECONDS = 15 * 1000;
 const ADDING_DATA_INTERVAL_IN_MILLISECONDS = 1000;
-const ADDING_DATA_RATIO = 0.8;
 
+// eslint-disable-next-line 
 export default (props) => {
   const nameList = ["a"];
   const defaultDataList = nameList.map(name => ({
@@ -42,6 +42,8 @@ export default (props) => {
       <RealtimeLineChart
         dataList={dataList}
         range={TIME_RANGE_IN_MILLISECONDS}
+        min={props.min}
+        max={props.max}
         title={props.title}
       />
     </div>

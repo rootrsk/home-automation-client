@@ -1,9 +1,11 @@
-import { Button, Divider, IconButton, SwipeableDrawer, } from '@material-ui/core';
+import React from 'react'
+import { Divider, IconButton, SwipeableDrawer, } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
-import { Close, ContactSupport, ExitToApp, Home, Info, Menu } from '@material-ui/icons';
+import { AccountCircle, BarChart, Close, ContactSupport, Home, Info, Menu, PowerSettingsNew } from '@material-ui/icons';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-function Header({user}) {
+import { connect } from 'react-redux';
+function Header(props) {
     const [open,setOpen] = useState(false)
     return (
         <div className='header'>
@@ -13,25 +15,41 @@ function Header({user}) {
                     
                 </IconButton>
             </div>
-            <div className='avatar-container'>
-                <Avatar src='https://pm1.narvii.com/7510/3a97aa2dfe448705c5edd1bc7e6766c612d8095br1-507-508v2_128.jpg' />
-                <p>{user.name}</p> 
-            </div>
+            
+            {props.user.user && 
+                <div className='avatar-container'>
+                    <Avatar src='https://pm1.narvii.com/7510/3a97aa2dfe448705c5edd1bc7e6766c612d8095br1-507-508v2_128.jpg' />
+                    <p>{props.user.user.username}</p> 
+                </div>
+            }
             
             <SwipeableDrawer
                 onClose={()=>setOpen(false)}
                 open={open}
                 onOpen={()=>{setOpen(true)}}
+                
             >  
-                <div className='drawar'>
+                <div className='drawar' onClick={()=>setOpen(false)}>
                    <div className='drawar-link'>
                        <div className='logo'>
                            <h2>Home Automation</h2>
                        </div>
                        <Divider style={{background:'#ffffff'}}/>
-                        <NavLink to='/' className='link' activeClassName='active-link'>
+                        <NavLink to='/' exact className='link' activeClassName='active-link'>
                             <Home />
                             <span>Home</span>
+                        </NavLink>
+                        <NavLink to='/switches' className='link' activeClassName='active-link'>
+                            <PowerSettingsNew />
+                            <span>Switches</span>
+                        </NavLink>
+                        <NavLink to='/graphs' className='link' activeClassName='active-link'>
+                            <BarChart />
+                            <span>Graphs</span>
+                        </NavLink>
+                        <NavLink to='/profile' className='link' activeClassName='active-link'>
+                            <AccountCircle />
+                            <span>Profile</span>
                         </NavLink>
                         <NavLink to='/details' className='link' activeClassName='active-link'>
                             <Info />
@@ -40,7 +58,6 @@ function Header({user}) {
                         <NavLink to='/about-us' className='link' activeClassName='active-link'>
                             <ContactSupport />
                             <span>About Us</span>
-                            
                         </NavLink>
                         {/* <div style={{padding:'10px 15px'}}>
                             <Button style={{color:'white',padding:'0px',margin:'0px'}} onClick={()=>window.close()}>
@@ -56,5 +73,5 @@ function Header({user}) {
         </div>
     )
 }
-
-export default Header
+const mapStateToProps = state => state
+export default connect(mapStateToProps) (Header)

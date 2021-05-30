@@ -1,3 +1,4 @@
+import React from 'react'
 function BoardStatus({status}) {
     return (
         <div className='arduino-status'>

@@ -1,3 +1,4 @@
+import React from 'react'
 import { IconButton } from '@material-ui/core';
 import { PowerSettingsNew } from '@material-ui/icons';
 function SwitchButton({buttonHandler,buttonStatus,buttonNumber,title}) {

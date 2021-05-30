@@ -190,8 +190,8 @@ class Temperature extends Component {
                 }
             }
         })
-        
-        const interval = setInterval(() => {
+        // eslint-disable-next-line 
+        setInterval(() => {
             if (data.length > 10) {
                 data = data.slice(data.length-10,data.length)
             }
@@ -204,10 +204,6 @@ class Temperature extends Component {
                 data: data
             }])
         }, 2000)
-        // return clearInterval(interval)
-    }
-    componentWillUnmount(){
-        // ApexCharts.exec
     }
 
     render() {
