@@ -16,10 +16,9 @@ const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
 function App(props) {
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false)
-	const switchHandler = ({switch_no,status,user}) =>{
-        if(props.socket){
+	const switchHandler = ({switch_no,status,user,local}) =>{
+        if(props.socket && !local){
             props.socket.emit('switch-trigger',{switch_no,status})
-            
         }
         props.dispatch({
             type: 'SET_SWITCH_STATUS',
@@ -80,6 +79,9 @@ function App(props) {
                 type:'SET_ARDUINO_STATUS',
                 status
             })
+        })
+        socket.on('switch-triggered', ({switch_no,status}) => {
+            switchHandler({switch_no,status,local:true})
         })
 	},[])
     if(!props.user.user)
