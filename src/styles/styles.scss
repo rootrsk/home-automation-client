@@ -72,6 +72,12 @@ body {
         padding: 0px 10px;
     }
 }
+.login{
+    
+}
+.signup{
+
+}
 //Header 
 .header{
     background: rgba(7, 20, 65, 0.808);
@@ -489,6 +495,59 @@ body {
         }
     }
 }
+
+// Description Page
+.description-page{
+    color: #ffffff;
+}
+
+.title_1{
+
+}
+.title_2{
+
+}
+.title_3{
+
+}
+.title_4{
+
+}
+.link-title{
+    display: inline;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0px 0px 20px 0px;
+    color: #43ffef;
+}
+.text{
+    text-align: justify;
+    margin: 10px;
+}
+.section{
+    margin-left: 20px;
+    display: flex;
+}
+.text-container{
+
+}
+.image-container{
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    display: grid;
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+    }
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 @media only screen and (max-width:1076px){
     .button_containers{
         justify-content: flex-start;

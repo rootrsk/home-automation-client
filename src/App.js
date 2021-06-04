@@ -12,7 +12,8 @@ import Switches from './components/Switches';
 import Grpah from './components/Grpah';
 import Header from './components/Header';
 import Profile from './components/Profile';
-const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
+// const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
+const END_POINT = 'http://localhost:3001'
 function App(props) {
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false)
