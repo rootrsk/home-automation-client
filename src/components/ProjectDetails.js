@@ -101,7 +101,7 @@ function ProjectDetails() {
                
             </section>
             <section>
-                <h2>2. Connection & Deagram </h2>
+                <h2>2. Connection & Diagram </h2>
             </section>
             <section>
                 <h2>3. Arduino </h2>

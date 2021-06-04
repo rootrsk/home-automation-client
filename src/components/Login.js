@@ -45,6 +45,22 @@ function Login({loginHandler,error,connected,loading}) {
     }
     useEffect(()=>{
         setRoom('123')
+        window.addEventListener('keypress',(e)=>{
+            setError('')
+            setWarning('')
+            setSuccess('')
+            if(e.key==='Enter'){
+                // if(!username)return setError('Please Enter username or email')
+                // if(!password) return setError('Please Enter Password.')
+                if(login){
+                    console.log('pressed')
+                    console.log(login)
+                    loginHandler({username,password})
+                }else{
+                    signupHandler()
+                }
+            }
+        })
         
     },[])
     return (
@@ -60,18 +76,18 @@ function Login({loginHandler,error,connected,loading}) {
                         </div> 
                         <input  
                             type='text'
-                            placeholder='Username'
+                            placeholder='Enter Username or Email'
                             onChange={(e)=>setUserName(e.target.value)}
                             value={username}
                             
                         />
                         <input  
                             type='text'
-                            placeholder='password'
+                            placeholder='Enter password'
                             onChange={(e)=>setPassword(e.target.value)}
                             value={password}
                         />
-                        {!connected && <p>Connecting to Socket</p> }
+                        
                         <button 
                             onClick={()=>{
                                 loginHandler({username,password,room})}}
@@ -151,9 +167,13 @@ function Login({loginHandler,error,connected,loading}) {
                         
                     </div>
                 </Fade>
-                {error && <p className='error'>{error}</p>}
-                {success && <p>{success}</p>}
-                {serror && <p>{serror}</p>}
+                <div div className = "login-div absolute" >
+                    {!connected && <p>Connecting to Socket</p> }
+                    {error && <p className='error'>{error}</p>}
+                    {success && <p>{success}</p>}
+                    {serror && <p>{serror}</p>}  
+                </div>
+                
             </div>
         </div>
     )
