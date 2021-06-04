@@ -8,7 +8,11 @@ import SwitchButton from './SwitchButton';
 function Dashboard(props) {
     const switchHandler = (switch_no,status,user) =>{
         if(props.socket){
-            props.socket.emit('switch-trigger',{switch_no,status})
+            if(props.user){
+                props.socket.emit('switch-trigger',{switch_no,status,username:props.user.user.username})  
+            } else{
+                props.socket.emit('switch-trigger',{switch_no,status,username:'unknown'})
+            }
         }
         props.dispatch({
             type: 'SET_SWITCH_STATUS',
@@ -34,11 +38,10 @@ function Dashboard(props) {
             <div>
                 <div >
                     <RealtimeChart  data ={props.sensors.temp} title='Temperature' max={50}/>
-                    <RealtimeChart  data ={props.sensors.humidity} title="Humidity" min={40} max={100} />
-                    <RealtimeChart  data ={props.sensors.co} title="Carbon MonoOxide" />
-                    <RealtimeChart  data ={props.sensors.ch} title="Methane" />
+                    <RealtimeChart  data ={props.sensors.humidity} title="Humidity" min={20} max={100} />
+                    <RealtimeChart  data ={props.sensors.co} title="Carbon MonoOxide" min={1} />
+                    <RealtimeChart  data ={props.sensors.ch*10} title="Methane" min={0.0001} />
                 </div>
-                
                 <div className='meters'>
                     <Radial data ={props.sensors.temp} name='Temperature'/>
                     <Radial data ={props.sensors.humidity} name='Humidity'/>

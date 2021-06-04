@@ -4,14 +4,15 @@ import SwitchButton from './SwitchButton'
 function Switches(props) {
     const switchHandler = (switch_no,status,user) =>{
         if(props.socket){
-            props.socket.emit('switch-trigger',{switch_no,status})
+            if(props.user){
+                props.socket.emit('switch-trigger',{switch_no,status,username:props.user.user.username})  
+            } else{
+                props.socket.emit('switch-trigger',{switch_no,status,username:'unknown'})
+            }
         }
         props.dispatch({
             type: 'SET_SWITCH_STATUS',
-            buttonStatus: {
-                switch_no,
-                status
-            }
+            buttonStatus: {switch_no,status}
         })
     }
     return (

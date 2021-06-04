@@ -14,9 +14,9 @@ function Grpah(props) {
             </div>
            <div>
                 <RealtimeChart  data ={props.sensors.temp} title='Temperature' max={50}/>
-                <RealtimeChart  data ={props.sensors.humidity} title="Humidity" min={40} max={100} />
-                <RealtimeChart  data ={props.sensors.co} title="Carbon MonoOxide" />
-                <RealtimeChart  data ={props.sensors.ch} title="Methane" />
+                <RealtimeChart  data ={props.sensors.humidity} title="Humidity" min={20} max={100} />
+                <RealtimeChart  data ={props.sensors.co} title="Carbon MonoOxide" min={1} max={50}/>
+                <RealtimeChart  data ={props.sensors.ch} title="Methane" min={0.001} max={50} />
             </div> 
             
         </div>

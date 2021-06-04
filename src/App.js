@@ -12,14 +12,17 @@ import Switches from './components/Switches';
 import Grpah from './components/Grpah';
 import Header from './components/Header';
 import Profile from './components/Profile';
+import HideBar from './components/HideBar'
 const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
 // const END_POINT = 'http://localhost:3001'
 function App(props) {
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false)
-	const switchHandler = ({switch_no,status,user,local}) =>{
+    const [message,setMessage] = useState('')
+	const switchHandler = ({switch_no,status,username,local}) =>{
+        console.log(username)
         if(props.socket && !local){
-            props.socket.emit('switch-trigger',{switch_no,status})
+            props.socket.emit('switch-trigger',{switch_no,status,username})
         }
         props.dispatch({
             type: 'SET_SWITCH_STATUS',
@@ -44,6 +47,9 @@ function App(props) {
 			})
 			
 		})
+        socket.on('disconnect',()=>{
+            window.location.reload();
+        })
 		socket.on('login',({error,status,user})=>{
             if(status===200){
                 setTimeout(() => {
@@ -71,7 +77,7 @@ function App(props) {
 		socket.on('arduino-data',(status)=>{
 			console.log(status)
             status.forEach((status,index)=>{
-                switchHandler({switch_no:index+1, status, user:'rootrsk'})
+                switchHandler({switch_no:index+1, status, username:'arduino'})
                 return
             })
         })
@@ -81,8 +87,9 @@ function App(props) {
                 status
             })
         })
-        socket.on('switch-triggered', ({switch_no,status}) => {
-            switchHandler({switch_no,status,local:true})
+        socket.on('switch-triggered', ({switch_no,status,username}) => {
+            setMessage(`Switch no ${switch_no} is turned ${status?' on':' off'} by ${username}`)
+            switchHandler({switch_no,status,local:true,username})
         })
 	},[])
     if(!props.user.user)
@@ -95,6 +102,7 @@ function App(props) {
 		<BrowserRouter>
             <div>
                 <Header />
+                {message && <HideBar message={message} opn={true} /> }
                 <Switch>
                     <Route path='/' component={Dashboard} exact/>
                     <Route path='/arduino' component={Arduino} />
