@@ -1,6 +1,6 @@
 const initialState = false
 
-export default function sensorsReducer(state = initialState, action) {
+export default function arduinoReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_ARDUINO_STATUS':
             return action.status

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Divider, IconButton, SwipeableDrawer, } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
-import { AccountCircle, BarChart, Close, ContactSupport, Home, Info, Menu, PowerSettingsNew } from '@material-ui/icons';
+import { AccountCircle, Android, BarChart, Close, Cloud, ContactSupport, Home, Info, Menu, PowerSettingsNew } from '@material-ui/icons';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -39,32 +39,38 @@ function Header(props) {
                             <Home />
                             <span>Home</span>
                         </NavLink>
-                        <NavLink to='/switches' className='link' activeClassName='active-link'>
-                            <PowerSettingsNew />
-                            <span>Switches</span>
-                        </NavLink>
+                        
                         <NavLink to='/graphs' className='link' activeClassName='active-link'>
                             <BarChart />
                             <span>Graphs</span>
                         </NavLink>
+                        
                         <NavLink to='/profile' className='link' activeClassName='active-link'>
                             <AccountCircle />
                             <span>Profile</span>
                         </NavLink>
-                        <NavLink to='/details' className='link' activeClassName='active-link'>
-                            <Info />
-                            <span>Project Details</span>
+                        
+                        <NavLink to='/weather' className='link' activeClassName='active-link'>
+                            <Cloud />
+                            <span>Weather</span>
+                        </NavLink>
+                        <NavLink to='/switches' className='link' activeClassName='active-link'>
+                            <PowerSettingsNew />
+                            <span>Switches</span>
                         </NavLink>
                         <NavLink to='/about-us' className='link' activeClassName='active-link'>
                             <ContactSupport />
                             <span>About Us</span>
                         </NavLink>
-                        {/* <div style={{padding:'10px 15px'}}>
-                            <Button style={{color:'white',padding:'0px',margin:'0px'}} onClick={()=>window.close()}>
-                                <ExitToApp style={{padding:'0px',margin:'0px'}}/>
-                                <span style={{margin:'0px 10px'}}>Exit</span>  
-                            </Button>
-                        </div> */}
+                        <NavLink to='/application' className='link' activeClassName='active-link'>
+                            <Android />
+                            <span>Application</span>
+                        </NavLink>
+                        <NavLink to='/details' className='link' activeClassName='active-link'>
+                            <Info />
+                            <span>Project Details</span>
+                        </NavLink>
+                        
                     </div> 
                 </div>
                 

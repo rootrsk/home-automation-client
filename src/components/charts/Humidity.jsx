@@ -2,7 +2,6 @@ import React, { useEffect, useState,Component } from 'react'
 import ReactApexChart from 'react-apexcharts'
 import ApexCharts from 'apexcharts'
 
-
 function Humidity(props) {
     const [data,setData] = useState([{x: new Date(),y:20}])
     const [series,setSeries] = useState(
@@ -53,7 +52,6 @@ function Humidity(props) {
                 fill: {
                     colors: ['white', 'red'],
                     type: 'gradient',
-
                     gradient: {
                         shade: 'dark',
                         type: 'vertical',
@@ -88,7 +86,6 @@ function Humidity(props) {
                 },
                 grid: {
                     borderColor: '#777',
-                
                 },
                 xaxis: {
                     type: 'datetime',
@@ -166,25 +163,17 @@ function Humidity(props) {
                     show: false
                 },
             })
-    const dataHandler = ({x,y}) =>{
-        console.log(x,y)
-        // setData([...data,{x,y}])
-    }
     useEffect(()=>{
         let start = 20
         setInterval(() => {
             if (data.length > 10) {
-                // data = data.slice(data.length-10,data.length)
                 data.shift()
             }
-            // dataHandler({x:props.time,y:props.data})
             data.push({
                 x: Date.now(),
                 y: start+1
             })
             start++
-            
-            
             ApexCharts.exec('realtime', 'updateSeries', [{
                 data: data
             }])
@@ -198,5 +187,4 @@ function Humidity(props) {
         </div>
     )
 }
-
 export default Humidity

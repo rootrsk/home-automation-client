@@ -12,5 +12,4 @@ function BoardStatus({status}) {
         </div>
     )
 }
-
 export default BoardStatus

@@ -13,6 +13,8 @@ import Grpah from './components/Grpah';
 import Header from './components/Header';
 import Profile from './components/Profile';
 import HideBar from './components/HideBar'
+import Weather from './components/Weather';
+import Application from './components/Application';
 const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
 // const END_POINT = 'http://localhost:3001'
 function App(props) {
@@ -33,6 +35,8 @@ function App(props) {
         })
     }
     const loginHandler = ({username,password,room}) =>{
+        localStorage.setItem('username',username)
+        localStorage.setItem('password',password)
         if(props.socket){
             props.socket.emit('join',{username,password,room})
             setLoading(true)
@@ -112,6 +116,8 @@ function App(props) {
                     <Route path='/details' component={ProjectDetails} />
                     <Route path='/about-us' component={About} />
                     <Route path='/profile' component={Profile} />
+                    <Route path='/weather' component={Weather} />
+                    <Route path='/application' component={Application} />
                 </Switch>
             </div>
 			

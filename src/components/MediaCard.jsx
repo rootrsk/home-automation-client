@@ -51,18 +51,7 @@ export default function MediaCard(props) {
   return (
     <Card className={classes.root}>
       <CardHeader
-        // avatar={
-        //   <Avatar aria-label="recipe" className={classes.avatar}>
-        //     R
-        //   </Avatar>
-        // }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
         title={props.title}
-        // subheader="September 14, 2016"
       />
       <CardMedia
         className={classes.media}

@@ -15,7 +15,7 @@ function Login({loginHandler,error,connected,loading}) {
     const [username, setUserName] = useState('')
     const [contact_no, setContact] = useState("")
     const [sloading ,setLoading] = useState(false)
-
+    
     const signupHandler = async() =>{
         setError('')
         setWarning('')
@@ -44,14 +44,19 @@ function Login({loginHandler,error,connected,loading}) {
         console.log(response)
     }
     useEffect(()=>{
+
+        const susername = localStorage.getItem('username')
+        const spassword = localStorage.getItem('password')
+        if(susername || spassword){
+            setUserName(susername)
+            setPassword(spassword)
+        }
         setRoom('123')
         window.addEventListener('keypress',(e)=>{
             setError('')
             setWarning('')
             setSuccess('')
             if(e.key==='Enter'){
-                // if(!username)return setError('Please Enter username or email')
-                // if(!password) return setError('Please Enter Password.')
                 if(login){
                     console.log('pressed')
                     console.log(login)

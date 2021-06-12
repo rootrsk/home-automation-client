@@ -9,7 +9,7 @@ function ProjectDetails() {
                 <h2>1. Hardware Components</h2>
                 <div className="section flex">
                     <Mediacard 
-                        img='https://robu.in/wp-content/uploads/2018/08/Mega-WiFi-R3-Atmega2560NodeMCU-ESP8266-32Mb-Memory-USB-TTL-CH340G-Compatible-For-Arduino-Mega-5.jpg' 
+                        img='https://i.ibb.co/mCrNHb9/Mega-Wi-Fi-R3-Atmega2560-Node-MCU-ESP8266-32-Mb-Memory-USB-TTL-CH340-G-Compatible-For-Arduino-Mega-5.jpg' 
                         title='Arduino Mega'
                         subtitle = 'It is a customized version of the classic ARDUINO MEGA R3 board. Full integration of Atmel ATmega2560 microcontroller and ESP8266 Wi-Fi IC, with 32 Mb (megabits) of flash memory, and CH340G USB-TTL converter on a single board! All components can be set up to work together or independently.'
                         
@@ -19,7 +19,7 @@ function ProjectDetails() {
                         switch, to connect the modules.For example, to USB and ATmeg2560, USB and ESP8266, ATmega2560 and ESP8266.'
                     />
                     <Mediacard 
-                        img = 'https://robu.in/wp-content/uploads/2018/02/robu-1-26.jpg'
+                        img = 'https://i.ibb.co/1Xs2pM0/robu-1-26.jpg'
                         title='ESP8266'
                         subtitle='This ESP8266 Serial Port To Wi-Fi Module, FL-M1S  serial transceiver module, based on ESP8266 SoC with an integrated TCP/IP protocol stack It can either host the application or offload all Wi-Fi networking functions from another application processor.
                         '
@@ -28,7 +28,7 @@ function ProjectDetails() {
                         for up to a really impressive + 19.5 dBm output power in 802.11 b mode!That gives this module a range over a hundred meters!'
                     />
                     <Mediacard 
-                        img='https://robu.in/wp-content/uploads/2016/02/robu-2-1.jpg' 
+                        img='https://i.ibb.co/rxVvcPT/robu-2-1.jpg' 
                         title='Relay'
                         subtitle = 'It is an 8 Channel Isolated 5V 10A Relay Module opto coupler, which can be controlled directly by a wide range of microcontrollers such as Arduino, AVR, PIC, ARM, PLC, etc. It is also able to control various appliances and other types of equipment with a large current. Relay output maximum contact is AC250V 10A and DC30V 10A.'
 
@@ -42,7 +42,7 @@ function ProjectDetails() {
                         '
                     />
                     <Mediacard 
-                        img = 'https://robu.in/wp-content/uploads/2019/10/Grove-Temperature-Humidity-Sensor-DHT11.jpg'
+                        img = 'https://i.ibb.co/LhVSZMh/Grove-Temperature-Humidity-Sensor-DHT11.jpg'
                         title='Humidity & Temperatue'
                         subtitle = 'Temperature & Humidity Sensor (DHT11) especially for you. It can measure temperature as well as humidity at the same time! It’s a high quality, low-cost digital temperature and humidity sensor based on the new DHT11 module. It utilizes a DHT11 sensor that can meet the measurement needs for general purposes. '
                         
@@ -52,7 +52,7 @@ function ProjectDetails() {
                         '
                     />
                     <Mediacard 
-                        img = 'https://robu.in/wp-content/uploads/2017/09/az-large-5121548.jpg'
+                        img = 'https://i.ibb.co/3ks7FYH/az-large-5121548.jpg'
                         title='MQ9 Gas Sensor'
                         subtitle = 'This is MQ-9 Carbon Monoxide, Methane, and LPG Gas Sensor Module can be used to sense Carbon Monoxide and Methane Gas. Sensitive material of the MQ9 gas sensor is SnO2, which with lower conductivity in clean air.'
                         subtext='This is MQ-9 Carbon Monoxide, Methane, and LPG Gas Sensor Module can be used to sense Carbon Monoxide and Methane Gas. Sensitive material of the MQ9 gas sensor is SnO2, which with lower conductivity in clean air.
@@ -60,7 +60,7 @@ function ProjectDetails() {
                         '
                     />
                     <Mediacard 
-                        img ='https://robu.in/wp-content/uploads/2019/01/Passive-Buzzer-Module-1.jpg'
+                        img ='https://i.ibb.co/zxFdBhJ/Passive-Buzzer-Module-1.jpg'
                         title='Buzzer'
                         subtitle ='Active Buzzer Module is a built-in construction of digital transducers, DC energy provides, extensively utilized in computer systems, printers, copiers, alarms, digital toys, car digital apparatus, phones, timers and different digital electronics projects for Alert sound.'
                         
@@ -74,14 +74,14 @@ function ProjectDetails() {
                         '
                     />
                     <Mediacard 
-                        img = 'https://robu.in/wp-content/uploads/2016/11/amico_breadboard_img_1.jpg'
+                        img = 'https://i.ibb.co/GQV0Bkw/amico-breadboard-img-1.jpg'
                         title='BreadBoard'
                         subtitle = 'An MB102 830 Points Solderless Prototype PCB Breadboard is an invaluable tool for experimenting with circuit designs whether in the R&D or university lab. A breadboard is used to make up temporary circuits for testing or to try out an idea. No soldering is required so it is easy to change connections and replace components.'
                         subtext ='An MB102 830 Points Solderless Prototype PCB Breadboard is an invaluable tool for experimenting with circuit designs whether in the R&D or university lab. A breadboard is used to make up temporary circuits for testing or to try out an idea. No soldering is required so it is easy to change connections and replace components.
                         '
                     />
                     <Mediacard 
-                        img='https://5.imimg.com/data5/DN/SE/MY-3299289/5mm-led-light-emitting-diode-500x500.jpg' 
+                        img='https://i.ibb.co/HxbvKyM/5mm-led-light-emitting-diode-500x500.jpg' 
                         title='Leds'
                         subtitle ='These are a 5mm Various DIP LED. An LED is a two-lead semiconductor light source, which emits lights when activated. When an appropriate voltage is applied to the LED terminal, then the electrons are able to recombine with the electron holes within the device and release energy in the form of photons. 
                         '
@@ -89,7 +89,7 @@ function ProjectDetails() {
                         '
                     />
                     <Mediacard 
-                        img = 'https://i.pinimg.com/originals/3a/9f/d1/3a9fd17555ac52c16731c4ec95cbf0f2.jpg'
+                        img = 'https://i.ibb.co/7pnxXsS/3a9fd17555ac52c16731c4ec95cbf0f2.jpg'
                         title='Home Appliances'
                         subtitle ='This is MQ-9 Carbon Monoxide, Methane, and LPG Gas Sensor Module can be used to sense Carbon Monoxide and Methane Gas. Sensitive material of the MQ9 gas sensor is SnO2, which with lower conductivity in clean air.
                         '
@@ -101,6 +101,9 @@ function ProjectDetails() {
                
             </section>
             <section>
+                
+            </section>
+            {/* <section>
                 <h2>2. Connection & Diagram </h2>
             </section>
             <section>
@@ -120,10 +123,10 @@ function ProjectDetails() {
             </section>
             <section>
                 <h2>2. FrontEnd </h2>
-            </section>
-            <section>
+            </section> */}
+            {/* <section>
                 <h2>1. Android Application</h2>
-            </section>
+            </section> */}
         </div>
     )
 }

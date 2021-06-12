@@ -30,9 +30,6 @@ function Profile(props) {
                     <div className='user-details-flexbox'>
                         <p>City</p> <p>{props.user.user.city}</p>
                     </div>
-                    {/* <div className='user-details-flexbox'>
-                        <p>Connected</p> <p>{people}</p>
-                    </div> */}
                 </div>
             }
         </div>
