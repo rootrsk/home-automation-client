@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+$font-stack: Helvetica,
+sans-serif;
+$primary-color: #3a456d;
+$secondary-color: #262D47;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Code Pro',
+    monospace;
+}
+body {
+    font: 100% $font-stack;
+    background: $primary-color;
+
+}
+
+// Login
+.login-page{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $secondary-color;
+    display: flex;
+    place-items: center;
+}
+.login-avatar{
+    display: flex;
+    justify-content: center;
+    margin: -70px 0px 20px 0px ;
+    // height: 100px;
+}
+.login-div{
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    display: grid;
+    position: relative;
+    h1{
+        color: rgb(189, 18, 18);
+    }
+    input{
+        padding: 15px 10px;
+        margin: 10px 0px;
+        background: #00295e00;
+        border: none;
+        color: rgb(255, 255, 255);
+        outline: none;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid rgb(158, 158, 158);
+    }
+    button{
+        padding: 15px 20px;
+        background: #010914b6;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        min-height: 47px;
+        &:hover{
+            background: #01091480;
+        }
+    }
+    p{
+        position: relative;
+        color: rgb(177, 177, 177);
+        text-transform: uppercase;
+        padding: 0px 10px;
+    }
+    .absolute{
+        position: absolute;
+        bottom: -35px;
+    }
+}
+.login{
+    
+}
+.signup{
+
+}
+//Header 
+.header{
+    background: rgba(7, 20, 65, 0.808);
+    padding: 5px 20px;
+    height: 50px;
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+} 
+.avatar-container{
+    display: flex;
+    place-items: center;
+    p{
+        margin: 0px 10px;
+        color: white;
+    }
+}
+.drawar{
+    width:250px;
+    background: #0c072b;
+    height: 100%;
+}
+
+.drawar-link{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    a{
+        text-decoration: none;
+        color: #ffffff;
+    }
+}
+.logo{
+    color:#ffffff;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 1px solid #3b3939;
+    margin-bottom: 15px;
+}
+.link{
+    width: 100%;
+    padding: 15px 10px;
+    margin: 0px 5px;
+    border-radius: 7px;
+    display: flex;
+    place-items: center;
+    color: white;
+    span{
+        margin: 0px 10px;
+    }
+    // background:#1a505e;
+}
+.active-link{
+    background: #00295e;
+}
+// Coming soon
+.coming-soon{
+    position: absolute;
+    background: #3a456d;
+    background: rgb(1, 26, 34);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+// Board Status
+.arduino-status{
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+    background: $secondary-color;
+    padding: 20px 0px;
+    margin: 0px 10px;
+    border-radius: 7px;
+}
+.arduino-status_title{
+    h2{
+        color: #fff;
+        margin: 0px 10px;
+    }
+}
+.arduino-status_status{
+    display: flex;
+    place-items: center;
+    p{
+        font-size: 20px;
+        color: #fff;
+    }
+    div{
+        margin: 0px 20px;
+    }
+}
+
+.dashboard{
+    padding: 0;
+    margin: 0;
+    background: #3a456d;
+    padding: 10px 0px 10px 0px;
+}
+.button_containers{
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    border-radius: 7px;
+    background: $secondary-color;
+    padding: 10px 10px;
+    margin: 15px 10px;
+    text-align: center;
+}
+.button_containerss {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    // overflow-x: auto;
+    border-radius: 7px;
+    background: $secondary-color;
+    padding: 50px 10px;
+    margin: 15px 10px;
+    max-width: 700px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    // margin-left: 5px;
+    // margin-right: 5px;
+}
+.third{
+    width:33%;
+}
+.button_div{
+    background-color: rgb(80, 80, 80);
+    background: $secondary-color;
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 10px 30px;
+    
+}
+.led-container{
+    margin: 0px 0px 20px 0px;
+}
+.button{
+    width: 70px;
+    height: 70px;
+    border: 0;
+    border-radius: 35px;
+    text-align: center;
+    line-height: 79px;
+    color: rgb(37, 37, 37);
+    text-shadow: 0px 1px 1px rgba(250, 250, 250, 0.1);
+    font-size: 32pt;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    background-color: rgb(83, 87, 93);
+    
+    box-shadow: 0px 3px 0px 0px rgb(34, 34, 34),
+    /* 1st Shadow */
+    0px 7px 10px 0px rgb(17, 17, 17),
+    /* 1nd Shadow */
+    inset 0px 1px 1px 0px rgba(250, 250, 250, .2),
+    /* 3rd Shadow */
+    inset 0px -12px 35px 0px rgba(0, 0, 0, .5);
+    /* 4th Shadow */
+    color: #ffffff;
+
+}
+
+.button2 {
+    width: 70px;
+    height: 70px;
+    border: 0;
+    border-radius: 35px;
+    text-align: center;
+    line-height: 79px;
+    color: rgb(37, 37, 37);
+    text-shadow: 0px 1px 1px rgba(250, 250, 250, 0.1);
+    font-size: 32pt;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    background-color: rgb(83, 87, 93);
+    box-shadow: 0px 3px 0px 0px rgb(124, 124, 124),
+        /* 1st Shadow */
+        0px 7px 10px 0px rgb(156, 151, 151),
+        /* 1nd Shadow */
+        inset 0px 1px 1px 0px rgba(250, 250, 250, .2),
+        /* 3rd Shadow */
+        inset 0px -12px 35px 0px rgba(255, 255, 255, 0.5);
+    /* 4th Shadow */
+    color: #d83737;
+
+}
+.button:before {
+    content: "";
+    width: 80px;
+    height: 80px;
+    display: block;
+    z-index: -2;
+    position: absolute;
+    background-color: rgb(26, 27, 29);
+    left: -5px;
+    top: -2px;
+    border-radius: 40px;
+    box-shadow: 0px 1px 0px 0px rgba(250, 250, 250, 0.1),
+        inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.icon_button {
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+}
+.icon_button2{
+    color: rgb(196, 189, 189);
+    font-weight: 700;
+    font-size: 24px;
+}
+.button_text2{
+    color: #c4bfbf;
+    margin: 15px 0px 0px 0px;
+    text-shadow: 0px 1px 1px rgba(8, 8, 8, 0.836);
+}
+.button_text {
+    color: #ffffff;
+    margin: 15px 0px 0px 0px;
+    text-shadow: 0px 1px 1px rgba(219, 219, 219, 0.836);
+}
+
+.led-green {
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+    background-color: #00ff40;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px,
+        #89ff00 0 2px 12px;
+}
+.led-off{
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    box-shadow: rgba(248, 10, 10, 0.651) 0 -1px 7px 1px, inset #7a2504 0 -1px 9px,
+        #df3427 0 2px 12px;
+}
+
+.chart_container{
+    background: $secondary-color;
+    padding: 10px;
+    border-radius: 7px;
+    margin: 15px 10px;
+}
+
+.meter{
+    transform: rotate(-90deg);
+}
+.meters{
+    display: flex;
+    background: $secondary-color;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-x: auto;
+    padding: 10px 10px;
+    margin: 15px 10px;
+    border-radius: 7px;
+}
+
+// Arduino page
+.arduino-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+
+
+}
+.relay{
+    display: flex;
+    justify-content: space-around;
+    background-color: #00295e;
+    color: white;
+    width: 1000px;
+    margin: auto;
+    padding: 30px 10px;
+    border-radius: 7px;
+}
+.switch_container{
+    display: grid;
+    p{
+        margin-top: 10px;
+    }
+}
+.arduino_header{
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    margin: auto;
+}
+.led{
+    width: 200px;
+    display: grid;
+    place-items: center;
+    background: $secondary-color;
+    margin: 20px 0px;
+    border-radius: 7px;
+    padding: 20px;
+    p{
+        margin-top: 20px;
+        color: #fff;
+    }
+}
+.buzzer{
+    width: 200px;
+    display: grid;
+    place-items: center;
+    background: $secondary-color;
+    margin: 20px 0px;
+    border-radius: 7px;
+    padding: 20px;
+    p{
+        margin-top: 10px;
+        color: #fff;
+    }
+}
+.sensors{
+    display: flex;
+    justify-content: space-around;
+    background: $secondary-color;
+    padding: 20px;
+    margin: 50px;
+    width: 90%;
+    color: #ffffff;
+}
+
+// Profile
+
+.profile-details{
+    width: 80%;
+    margin: auto;
+    background-color: #00295e;
+    border-radius: 7px;
+    padding: 10px 20px;
+    color: #ffffff;
+    margin-top: 70px;
+    p{
+        margin: 10px 0px;
+    }
+}
+.user-details-flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+// About
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    color: #ffffff;
+}
+.card{
+    width: 300px;
+    height: 450px;
+    background: #262D47;
+    border-radius: 5px;
+    position: relative;
+    margin: 10px;
+}
+.card-profile{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    margin-top: 20px;
+}
+.card-description{
+    margin-top: 10px;
+    a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .card-title{
+        text-align: center;
+        font-weight: 700;
+        font-size: 25px;
+    }
+    .card-icon{
+        display: grid;
+        justify-content: center;
+        place-items: center;
+        font-size: 100px;
+        background-color: rgb(2, 37, 66);
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        padding: 20px 0px;
+        border-radius: 5px;
+        color: #fff;
+        a{
+            margin-left: 20px;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    }
+}
+
+// Description Page
+.center{
+    text-align: center;
+}
+.description-page{
+    color: #ffffff;
+}
+
+.title_1{
+
+}
+.title_2{
+
+}
+.title_3{
+
+}
+.title_4{
+
+}
+.link-title{
+    display: inline;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0px 0px 20px 0px;
+    color: #43ffef;
+}
+.text{
+    text-align: justify;
+    margin: 10px;
+}
+.section{
+    margin-left: 20px;
+    display: flex;
+}
+.text-container{
+
+}
+.image-container{
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    display: grid;
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+    }
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+// Weather page
+.weather-template{
+    background: #8b8b8b80;
+    background: hsla(0,0%,100%,.1);
+    padding: 10px;
+    border-radius: 3px;
+    // border: 1px solid #e7e7e7;
+    max-width: 600px;
+    width: 590px;
+    margin: auto;
+    margin-top: 20px;
+    color:#ffffff;
+}
+.title{
+    font-size: 25px;
+    font-weight: 600;
+}
+.big-text{
+    font-size: 60px;
+    font-weight: 700;
+}
+.caption{
+
+}
+.weather-template-details{
+    width: 300px;
+}
+.paragrpah{
+    font-size: 20px;
+    margin-top: 5px;
+}
+@media only screen and (max-width:1076px){
+    .button_containers{
+        justify-content: flex-start;
+    }
+    .meters{
+        overflow-x: auto;
+    }
+}
+@media only screen and (max-width:500px){
+    .weather-template{
+        max-width: 400px;
+        width: 95%;
+    }
+    .weather-template-details{
+        width: 180px;
+    }
+    .paragrpah{
+        font-size: 16px;
+        margin-top: 5px;
+    }
+    .title{
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .big-text{
+        font-size: 40px;
+        font-weight: 700;
+    }
+}
+
+.sdf{
+    background: #8a04f8a9;
+}
