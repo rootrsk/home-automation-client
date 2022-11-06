@@ -2,7 +2,7 @@ import { CircularProgress, Divider } from '@material-ui/core'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-const url = "https://rootrsk-homeautomation-api.vercel.app"
+const url = "https://rootrsk-home-automation-api.herokuapp.com"
 function Weather(props) {
     const featchWeather = async()=>{
         

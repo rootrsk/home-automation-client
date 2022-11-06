@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import socketClient from "socket.io-client";
 import random from 'random';
 // const END_POINT = 'http://localhost:3002'
-const END_POINT = 'https://rootrsk-homeautomation-api.vercel.app'
+const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
 
 
 function Arduino() {

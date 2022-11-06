@@ -29,7 +29,7 @@ function Login({loginHandler,error,connected,loading}) {
         
         const response = await axios({
             method:'POST',
-            url:'https://rootrsk-homeautomation-api.vercel.app/signup',
+            url:'https://rootrsk-home-automation-api.herokuapp.com/signup',
             data:{name,username,email,city,contact_no,password}
         })
         setLoading(false)

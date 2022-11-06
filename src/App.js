@@ -15,7 +15,7 @@ import Profile from './components/Profile';
 import HideBar from './components/HideBar'
 import Weather from './components/Weather';
 import Application from './components/Application';
-const END_POINT = 'https://rootrsk-homeautomation-api.vercel.app'
+const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
 // const END_POINT = 'http://localhost:3001'
 function App(props) {
     const [error,setError] = useState('');
