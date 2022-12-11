@@ -19,7 +19,8 @@ function Switches(props) {
         <div>
             <div className='button_containerss'>
                 <div className="third">
-                    <SwitchButton buttonHandler={switchHandler} buttonStatus={props.buttons.switch_1} buttonNumber={1} title='Button 1'/>
+                    <SwitchButton 
+                        buttonHandler={switchHandler} buttonStatus={props.buttons.switch_1} buttonNumber={1} title='Button 1'/>
                 </div>
                 <div className="third">
                     <SwitchButton buttonHandler={switchHandler} buttonStatus={props.buttons.switch_2} buttonNumber={2} title='Button 2'/>

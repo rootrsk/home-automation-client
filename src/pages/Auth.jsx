@@ -1,8 +1,11 @@
-import { Avatar, Fade, LinearProgress, Slide } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
-function Login({loginHandler,error,connected,loading}) {
-    
+import { emitEvent } from '../redux/reducers/socket'
+import { useDispatch, useSelector } from 'react-redux'
+import { initiateAuthentication } from '../redux/reducers/auth'
+import { Avatar, Fade, LinearProgress, Slide } from '@material-ui/core'
+import './Auth.scss'
+function Auth() {
     const [name,setName] = useState("")
     const [city, setCity] = useState("")
     const [email,setEmail] = useState("")
@@ -11,10 +14,14 @@ function Login({loginHandler,error,connected,loading}) {
     const [login, setLogin] = useState(true)
     const [warning, setWarning] = useState('')
     const [success, setSuccess] = useState('')
-    const [password, setPassword] = useState('')
-    const [username, setUserName] = useState('')
+    const [password, setPassword] = useState('rootrsk')
+    const [username, setUserName] = useState('rootrsk')
     const [contact_no, setContact] = useState("")
     const [sloading ,setLoading] = useState(false)
+
+    const dispatch = useDispatch()
+    const auth = useSelector(state=>state?.auth)
+    const socket = useSelector(state=>state.socket)
     
     const signupHandler = async() =>{
         setError('')
@@ -43,8 +50,14 @@ function Login({loginHandler,error,connected,loading}) {
         }
         console.log(response)
     }
+    const loginHandler = async()=>{
+        dispatch(initiateAuthentication())
+        dispatch(emitEvent({
+            eventName:'join',
+            data:{username,password,room}
+        }))
+    }
     useEffect(()=>{
-
         const susername = localStorage.getItem('username')
         const spassword = localStorage.getItem('password')
         if(susername || spassword){
@@ -52,27 +65,18 @@ function Login({loginHandler,error,connected,loading}) {
             setPassword(spassword)
         }
         setRoom('123')
-        window.addEventListener('keypress',(e)=>{
-            setError('')
-            setWarning('')
-            setSuccess('')
-            if(e.key==='Enter'){
-                if(login){
-                    console.log('pressed')
-                    console.log(login)
-                    loginHandler({username,password})
-                }else{
-                    signupHandler()
-                }
-            }
-        })
-        
     },[])
     return (
         <div className='login-page'>
             <div className='login-div'>
-                <Fade in={login} mountOnEnter unmountOnExit direction='up' timeout={{enter:1500,exit:0}}>
-                    <div className="login-div login">
+                <Fade 
+                    in={login} 
+                    mountOnEnter 
+                    unmountOnExit 
+                    direction='up' 
+                    timeout={{enter:1500,exit:0}}
+                >
+                    <div className="login">
                         <div className='login-avatar'>
                             <Avatar 
                                 style={{width:'150px',height:'150px'}} 
@@ -94,14 +98,20 @@ function Login({loginHandler,error,connected,loading}) {
                         />
                         
                         <button 
-                            onClick={()=>{
-                                loginHandler({username,password,room})}}
-                            >{loading?<LinearProgress color="secondary" />:'Login'}
+                            onClick={loginHandler}
+                            disabled={auth.isAuthenticating}
+                        >
+                            {
+                                auth.isAuthenticating?
+                                <LinearProgress color="secondary" />
+                                :'Login'
+                            }
                         </button>
                         <div style={{display:'flex',justifyContent:'flex-end'}}>
                             <button 
                                 style={{background:'transparent',padding:'0px',color:'#79fff8',margin:'0px'}}
                                 onClick={()=>setLogin(!login)}
+                                disabled={auth.isAuthenticating}
                             >
                                 Create new account
                             </button>    
@@ -110,60 +120,64 @@ function Login({loginHandler,error,connected,loading}) {
                     </div>    
                 </Fade>
                 
-                <Fade in={!login} mountOnEnter unmountOnExit direction='down' timeout={{enter:1500,exit:0}}>
-                    <div className='login-div signup'>
+                <Fade 
+                    in={!login} 
+                    mountOnEnter 
+                    unmountOnExit 
+                    direction='down' 
+                    timeout={{enter:1500,exit:0}}
+                >
+                    <div className='login'>
                         <div className='login-avatar'>
-                        <Avatar 
-                            style={{width:'150px',height:'150px'}} 
-                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7jxzLIrdsnOrglo0o3YM-f9nzmqTQickDQs6tHAKTEoAMLcAF6O9vtb-bfNMojYKrIdA&usqp=CAU' 
-                        />
-                    </div>
+                            <Avatar 
+                                style={{width:'150px',height:'150px'}} 
+                                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7jxzLIrdsnOrglo0o3YM-f9nzmqTQickDQs6tHAKTEoAMLcAF6O9vtb-bfNMojYKrIdA&usqp=CAU' 
+                            />
+                        </div>
                         <input  
                             type='text'
                             placeholder='Username'
-                            onChange={(e)=>setUserName(e.target.value)}
                             value={username}
+                            onChange={(e)=>setUserName(e.target.value)}
                         /> 
                         <input  
                             type='text'
                             placeholder='Full Name'
-                            onChange={(e)=>setName(e.target.value)}
                             value={name}
+                            onChange={(e)=>setName(e.target.value)}
                         />
                         <input  
                             type='text'
                             placeholder='Email'
-                            onChange={(e)=>setEmail(e.target.value)}
                             value={email}
+                            onChange={(e)=>setEmail(e.target.value)}
                             
                         />
-                        {/* <input  
-                            type='text'
-                            placeholder='Contact'
-                            onChange={(e)=>setContact(e.target.value)}
-                            value={contact_no}
-                            
-                        /> */}
                         <input  
                             type='text'
                             placeholder='City'
-                            onChange={(e)=>setCity(e.target.value)}
                             value={city}
+                            onChange={(e)=>setCity(e.target.value)}
                             
                         />
                         <input  
                             type='text'
                             placeholder='Password'
-                            onChange={(e)=>setPassword(e.target.value)}
                             value={password}
+                            onChange={(e)=>setPassword(e.target.value)}
                         />
                         <button 
                             onClick={signupHandler}
-                            >{sloading?<LinearProgress color="secondary" />:'Create Account'}
+                        >
+                            {sloading?<LinearProgress color="secondary" />:'Create Account'}
                         </button>
                         <div style={{display:'flex',justifyContent:'flex-end'}}>
                             <button 
-                                style={{background:'transparent',padding:'0px',color:'#79fff8',margin:'0px'}}
+                                style={{
+                                    background:'transparent',
+                                    padding:'0px',
+                                    color:'#79fff8',margin:'0px'
+                                }}
                                 onClick={()=>setLogin(!login)}
                             >
                                 Already have an account ?
@@ -172,11 +186,12 @@ function Login({loginHandler,error,connected,loading}) {
                         
                     </div>
                 </Fade>
-                <div  className = "login-div absolute" >
-                    {!connected && <p>Connecting to Socket</p> }
-                    {error && <p className='error'>{error}</p>}
+
+                <div  className = "absolute" >
+                    {socket.isConnecting && <p>Connecting to Socket</p> }
+                    {auth.error && login &&  <p>{auth.error}</p>}
                     {success && <p>{success}</p>}
-                    {serror && <p>{serror}</p>}  
+                    {serror &&  !login && <p>{serror}</p>}  
                 </div>
                 
             </div>
@@ -184,4 +199,4 @@ function Login({loginHandler,error,connected,loading}) {
     )
 }
 
-export default Login
+export default Auth

@@ -1,9 +1,9 @@
-import React from 'react'
 import { connect } from 'react-redux';
-import BoardStatus from './BoardStatus';
+
 import Radial from './charts/Radial';
-import RealtimeChart from './charts/RealtimeChart';
+import BoardStatus from './BoardStatus';
 import SwitchButton from './SwitchButton';
+import RealtimeChart from './charts/RealtimeChart';
 // const END_POINT = 'http://localhost:3002'
 function Dashboard(props) {
     const switchHandler = (switch_no,status,user) =>{

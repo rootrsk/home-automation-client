@@ -1,0 +1,96 @@
+@import '../scss/abstracts/variable';
+
+.switch_button_wrapper{
+    background-color: rgb(80, 80, 80);
+    background: $secondary-color;
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 10px 30px;
+    
+    .button{
+        width: 70px;
+        height: 70px;
+        border: 0;
+        border-radius: 35px;
+        text-align: center;
+        line-height: 79px;
+        color: rgb(37, 37, 37);
+        text-shadow: 0px 1px 1px rgba(250, 250, 250, 0.1);
+        font-size: 32pt;
+        display: block;
+        position: relative;
+        text-decoration: none;
+        background-color: rgba(19, 46, 73, 0.536);
+        
+        box-shadow: 0px 3px 0px 0px rgb(34, 34, 34),
+        /* 1st Shadow */
+        0px 7px 10px 0px rgb(17, 17, 17),
+        /* 1nd Shadow */
+        inset 0px 1px 1px 0px rgba(250, 250, 250, .2),
+        /* 3rd Shadow */
+        inset 0px -12px 35px 0px rgba(0, 0, 0, .5);
+        /* 4th Shadow */
+        color: #ffffff;
+    
+    }
+    .button2 {
+        width: 70px;
+        height: 70px;
+        border: 0;
+        border-radius: 35px;
+        text-align: center;
+        line-height: 79px;
+        color: rgb(37, 37, 37);
+        text-shadow: 0px 1px 1px rgba(250, 250, 250, 0.1);
+        font-size: 32pt;
+        display: block;
+        position: relative;
+        text-decoration: none;
+        background-color: rgb(83, 87, 93);
+        box-shadow: 0px 3px 0px 0px rgb(124, 124, 124),
+            /* 1st Shadow */
+            0px 7px 10px 0px rgb(156, 151, 151),
+            /* 1nd Shadow */
+            inset 0px 1px 1px 0px rgba(250, 250, 250, .2),
+            /* 3rd Shadow */
+            inset 0px -12px 35px 0px rgba(255, 255, 255, 0.5);
+        /* 4th Shadow */
+        color: #d83737;
+    
+    }
+    .icon_button {
+        color: white;
+        font-weight: 700;
+        font-size: 24px;
+    }
+    .icon_button2{
+        color: rgb(196, 189, 189);
+        font-weight: 700;
+        font-size: 24px;
+    }
+    .button_text2{
+        color: #c4bfbf;
+        margin: 15px 0px 0px 0px;
+        text-shadow: 0px 1px 1px rgba(8, 8, 8, 0.836);
+    }
+    .button_text {
+        color: #ffffff;
+        margin: 15px 0px 0px 0px;
+        text-shadow: 0px 1px 1px rgba(219, 219, 219, 0.836);
+    }
+    .button:before {
+        content: "";
+        width: 80px;
+        height: 80px;
+        display: block;
+        z-index: -2;
+        position: absolute;
+        background-color: rgb(26, 27, 29);
+        left: -5px;
+        top: -2px;
+        border-radius: 40px;
+        box-shadow: 0px 1px 0px 0px rgba(250, 250, 250, 0.1),
+            inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+}

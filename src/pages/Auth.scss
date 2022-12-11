@@ -1,0 +1,107 @@
+@import '../scss/abstracts/variable';
+.login-page{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $secondary-color;
+    display: flex;
+    place-items: center;
+    .login-avatar{
+        display: flex;
+        justify-content: center;
+        margin: -70px 0px 20px 0px ;
+    }
+    .login-div{
+        max-width: 500px;
+        width: 90%;
+        margin: auto;
+        display: grid;
+        position: relative;
+        h1{
+            color: rgb(189, 18, 18);
+        }
+        input{
+            padding: 15px 10px;
+            margin: 10px 0px;
+            background: #00295e00;
+            border: none;
+            color: rgb(255, 255, 255);
+            outline: none;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid rgb(158, 158, 158);
+        }
+        button{
+            padding: 15px 20px;
+            background: #010914b6;
+            border: none;
+            outline: none;
+            color: white;
+            cursor: pointer;
+            min-height: 47px;
+            &:hover{
+                background: #01091480;
+            }
+        }
+        p{
+            position: relative;
+            color: rgb(177, 177, 177);
+            text-transform: uppercase;
+            // padding: 0px 10px;
+        }
+        .error{
+            color: rgb(240, 29, 29);
+        }
+        .login{
+            display: flex;
+            flex-direction: column;
+        }
+        .absolute{
+            position: absolute;
+            bottom: -20px;
+        }
+    }
+}
+
+//Header 
+.header{
+    background: rgba(7, 20, 65, 0.808);
+    padding: 5px 20px;
+    height: 50px;
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+} 
+.avatar-container{
+    display: flex;
+    place-items: center;
+    p{
+        margin: 0px 10px;
+        color: white;
+    }
+}
+.drawar{
+    width:250px;
+    background: #0c072b;
+    height: 100%;
+}
+
+.drawar-link{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    a{
+        text-decoration: none;
+        color: #ffffff;
+    }
+}
+.logo{
+    color:#ffffff;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 1px solid #3b3939;
+    margin-bottom: 15px;
+}

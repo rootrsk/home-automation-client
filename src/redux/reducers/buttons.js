@@ -1,54 +1,32 @@
-
-const initialState = {
-    switch_1:false,
-    switch_2:false,
-    switch_3:false,
-    switch_4:false,
-    switch_5:false,
-    switch_6:false,
-    switch_7:false,
-    switch_8:false,
+import { createSlice } from '@reduxjs/toolkit'
+const initialState={
+    button_1:{status:false,title:'Fan'},
+    button_2:{status:false,title:'Strip Light'},
+    button_3:{status:false,title:'Main Light'},
+    button_4:{status:false,title:'Laptop Charger'},
+    button_5:{status:false,title:'Night Light'},
+    button_6:{status:false,title:'Button'},
+    button_7:{status:false,title:'Button'},
+    button_8:{status:false,title:'Button'},
 }
 
-export default function sensorsReducer(state = initialState, action) {
-    var switch_no,status,button
-    if(action.buttonStatus){
-      switch_no= action.buttonStatus.switch_no
-      status   = action.buttonStatus.status
-      button = getButton({switch_no})
-    }
-    switch (action.type) {
-        case 'SET_SWITCH_STATUS':
-            if(button){
-                state[button] = status
-                return {...state}
-            }
-            return {...state}
-        case 'GET_SWITCH_STATUS':
-            return state
-        default:
-            return state
-    }
-}
 
-const getButton = ({switch_no,status}) =>{
-    switch (switch_no) {
-        case 1:
-            return 'switch_1'
-        case 2:
-            return 'switch_2'
-        case 3:
-            return 'switch_3'
-        case 4:
-            return 'switch_4'
-        case 5:
-            return 'switch_5'
-        case 6:
-            return 'switch_6'
-        case 7:
-            return 'switch_7'
-        case 8:
-            return 'switch_8'
-        default:
+const authSlice = createSlice({
+    name:'buttons',
+    initialState,
+    reducers:{
+        changeButtonStatus(state,{payload}){
+            console.log(payload,state)
+            state[`button_${payload?.switch_no}`].status = payload?.status
+            // state.isAuthenticating = false
+            // state.user = payload?.user ?? state.user
+            // state.error = payload.error ?? state.error
+            // state.isAuthenticated = payload?.isAuthenticated ?? state.isAuthenticated
+        }
+
     }
-}
+})
+export default authSlice.reducer
+export const { 
+    changeButtonStatus
+} = authSlice.actions

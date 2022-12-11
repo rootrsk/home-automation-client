@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import socketClient from "socket.io-client";
-import random from 'random';
+// import random from 'random';
 // const END_POINT = 'http://localhost:3002'
-const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
+const END_POINT = 'https://rootrsk-homeautomation-api.vercel.app'
 
 
 function Arduino() {
@@ -73,10 +73,10 @@ function Arduino() {
             switchHandler({switch_no,status})
         })
         setInterval(() => {
-            const temp = random.int(20, 55)
-            const humidity = random.int(20,55)
-            const co = random.int(20,55)
-            const ch = random.int(20,55)
+            const temp = 10
+            const humidity = 20
+            const co = 20
+            const ch = 20
             if(temp>50 || humidity > 50 || co>50 || ch >50){
                 setNormal(false)
             }else{
