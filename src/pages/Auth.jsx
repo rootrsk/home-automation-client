@@ -36,7 +36,7 @@ function Auth() {
         
         const response = await axios({
             method:'POST',
-            url:'https://rootrsk-home-automation-api.herokuapp.com/signup',
+            url:'https://1b12-116-193-143-52.ngrok.io/signup',
             data:{name,username,email,city,contact_no,password}
         })
         setLoading(false)

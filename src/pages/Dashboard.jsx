@@ -5,7 +5,7 @@ import Radial from '../components/charts/Radial';
 import RealtimeChart from '../components/charts/RealtimeChart';
 import SwitchButton from '../components/SwitchButton';
 import { emitEvent } from '../redux/reducers/socket';
-// const END_POINT = 'http://localhost:3002'
+
 function Dashboard(props) {
     const dispatch = useDispatch()
     const switchHandler = (switch_no,status,username) =>{
@@ -16,9 +16,10 @@ function Dashboard(props) {
         }))
     }
     const buttons = useSelector(state=>state.buttons)
+    const arduino = useSelector(state=>state.arduino)
     return (
         <div className='dashboard'>
-            <BoardStatus status={props.arduino} />
+            <BoardStatus status={arduino?.connected} />
             <div className='button_containers'>
                 {
                     Object?.entries(buttons||{})?.map(([k,v],idx)=>{
@@ -36,7 +37,7 @@ function Dashboard(props) {
                 }
             </div>
             <div>
-                <div >
+                <div>
                     <RealtimeChart  data ={props.sensors.temp} title='Temperature' max={50}/>
                     <RealtimeChart  data ={props.sensors.humidity} title="Humidity" min={20} max={100} />
                     <RealtimeChart  data ={props.sensors.co} title="Carbon MonoOxide" min={1} />

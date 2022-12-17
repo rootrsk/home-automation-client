@@ -1,15 +1,18 @@
-const initialState = false
-
-export default function arduinoReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'SET_ARDUINO_STATUS':
-            return action.status
-            
-        case 'GET_ARDUINO_STATUS':
-            return state
-            
-        default:
-            return state
-            
-    }
+import { createSlice } from '@reduxjs/toolkit'
+const initialState={
+    connected: false,
 }
+
+const arduinoReducer = createSlice({
+    name:'arduino',
+    initialState,
+    reducers:{
+        changeArduinoStatus(state,{payload}){
+            state.connected = payload?.connected
+        }
+    }
+})
+export default arduinoReducer.reducer
+export const { 
+    changeArduinoStatus
+} = arduinoReducer.actions

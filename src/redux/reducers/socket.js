@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import socketIoClient from "socket.io-client";
 // const END_POINT = 'https://rootrsk-home-automation-api.herokuapp.com'
-const END_POINT = 'https://1b12-116-193-143-52.ngrok.io'
+const END_POINT = 'https://mammoth-galvanized-fiber.glitch.me'
 // const END_POINT = 'http://localhost:3001'
 
 const initialState = { 

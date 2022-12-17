@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAuthenticationStatus, terminateAuthentication } from '../../redux/reducers/auth';
 import { changeButtonStatus } from '../../redux/reducers/buttons';
 import { changeConnectionStatus, terminateConnection } from '../../redux/reducers/socket';
+import { changeAuthenticationStatus, terminateAuthentication } from '../../redux/reducers/auth';
+import { changeArduinoStatus } from '../../redux/reducers/arduino';
+import { updateSensorData } from '../../redux/reducers/sensors';
 function ConnectionHandler() {
     const dispatch = useDispatch()
     const socket = useSelector(state=>state.socket)
@@ -38,7 +40,12 @@ function ConnectionHandler() {
     })
     socket?.socket?.on('sync',({switchStatus,arduinoStatus})=>{
         switchStatus.forEach((status,idx)=>dispatch(changeButtonStatus({switch_no:idx+1,status})))
-        console.log('sync')
+        dispatch(changeArduinoStatus(arduinoStatus))
+        console.log('sync',arduinoStatus)
+    })
+    socket?.socket?.on('sensor-sent',(data)=>{
+        console.log(data)
+        dispatch(updateSensorData(data))
     })
     return (<></>)
 }

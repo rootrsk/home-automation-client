@@ -10,20 +10,16 @@ const initialState={
     button_8:{status:false,title:'Button'},
 }
 
-
 const authSlice = createSlice({
     name:'buttons',
     initialState,
     reducers:{
         changeButtonStatus(state,{payload}){
-            console.log(payload,state)
             state[`button_${payload?.switch_no}`].status = payload?.status
-            // state.isAuthenticating = false
-            // state.user = payload?.user ?? state.user
-            // state.error = payload.error ?? state.error
-            // state.isAuthenticated = payload?.isAuthenticated ?? state.isAuthenticated
+        },
+        changeButtonTitle(state,{payload}){
+            state[`button_${payload?.switch_no}`].title = payload?.title
         }
-
     }
 })
 export default authSlice.reducer
