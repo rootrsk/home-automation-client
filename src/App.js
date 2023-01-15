@@ -11,8 +11,8 @@ import Header from './components/Header'
 import Dashboard from "./pages/Dashboard"
 import Profile from './components/Profile'
 import HideBar from './components/HideBar'
-import Weather from './components/Weather'
-import Arduino from "./components/Arduino"
+import Weather from './pages/Weather'
+import Arduino from "./pages/Arduino"
 import Application from './components/Application';
 import ProjectDetails from "./components/ProjectDetails";
 import { initiateConnection } from './redux/reducers/socket';
@@ -39,61 +39,6 @@ function App(props) {
     useEffect(()=>{
         dispatch(initiateConnection())
     },[])
-	// useState(()=>{
-	// 	// const socket = socketClient(END_POINT, {})
-	// 	socket.on('connect', () => {
-	// 		// props.dispatch({
-	// 		// 	type: 'SET_SOCKET_STATUS',
-	// 		// 	socket
-	// 		// })
-    //         console.log('Socket Connected')
-			
-	// 	})
-    //     socket.on('disconnect',()=>{
-    //         window.location.reload();
-    //     })
-	// 	socket.on('login',({error,status,user})=>{
-    //         if(status===200){
-    //             setTimeout(() => {
-    //             //    props.dispatch({
-    //             //         type: 'SET_USER',
-    //             //         user,
-    //             //         isAuthenticated:true,
-    //             //         loading:false,
-    //             //     }) 
-    //                 setError("")
-    //                 setLoading(false)
-    //             }, 2000);
-    //             setError("Redirecting to Dashboard")
-    //         } else{
-    //             setError(error)
-    //             setLoading(false)
-    //         }
-    //     })
-	// 	socket.on('sensor-sent',({temp,humidity,co,ch,time})=>{
-    //         // props.dispatch({
-    //         //     type: 'SET_SENSORS_DATA',
-    //         //     sensorsData:{temp,humidity,co,ch,time}
-    //         // })
-    //     })
-	// 	socket.on('arduino-data',(status)=>{
-	// 		console.log(status)
-    //         status.forEach((status,index)=>{
-    //             switchHandler({switch_no:index+1, status, username:'arduino'})
-    //             return
-    //         })
-    //     })
-	// 	socket.on('arduino-connection-status',({status})=>{
-    //         // props.dispatch({
-    //         //     type:'SET_ARDUINO_STATUS',
-    //         //     status
-    //         // })
-    //     })
-    //     socket.on('switch-triggered', ({switch_no,status,username}) => {
-    //         setMessage(`Switch no ${switch_no} is turned ${status?' on':' off'} by ${username}`)
-    //         switchHandler({switch_no,status,local:true,username})
-    //     })
-	// },[])
     if(!auth?.user) return <Auth />
     return (
 		<BrowserRouter>

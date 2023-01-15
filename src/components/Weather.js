@@ -2,8 +2,15 @@ import { CircularProgress, Divider } from '@material-ui/core'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-const url = "https://rootrsk-home-automation-api.herokuapp.com"
+import { useDispatch, useSelector } from 'react-redux';
+const url = "https://mammoth-galvanized-fiber.glitch.me"
+
 function Weather(props) {
+    console.log(props)
+    const dispatch = useDispatch()
+    const buttons = useSelector(state=>state.buttons)
+    const arduino = useSelector(state=>state.arduino)
+    const weahter = useSelector(state=>state.weather)
     const featchWeather = async()=>{
         
         try {
@@ -16,24 +23,24 @@ function Weather(props) {
                 method:'get'
             })
             console.log(response.data)
-            if(response.data.success===false){
-                console.log(response.data)
-                props.dispatch({
-                    type:'SET_WEATHER',
-                    weather:{
-                        user:'failed',
-                        room:response2.data.data
-                    }
-                })
-            }else{
-                props.dispatch({
-                    type:'SET_WEATHER',
-                    weather:{
-                        user:response.data.data,
-                        room:response2.data.data
-                    }
-                })
-            }
+            // if(response.data.success===false){
+            //     console.log(response.data)
+            //     props.dispatch({
+            //         type:'SET_WEATHER',
+            //         weather:{
+            //             user:'failed',
+            //             room:response2.data.data
+            //         }
+            //     })
+            // }else{
+            //     props.dispatch({
+            //         type:'SET_WEATHER',
+            //         weather:{
+            //             user:response.data.data,
+            //             room:response2.data.data
+            //         }
+            //     })
+            // }
 
             
             console.log(response.data)
@@ -46,7 +53,6 @@ function Weather(props) {
             if(!props.weather){
                 featchWeather()
             }
-                
         }
     },[])
     return (
@@ -71,7 +77,7 @@ function Weather(props) {
                 {
                     props.weather ?
                     <WeatherTemplate 
-                        location={`${props.weather.room.location.name} ${props.weather.room.location.region} ${props.weather.room.location.country}`}
+                        location={`${props?.weather?.room?.location?.name} ${props?.weather?.room?.location?.region} ${props?.weather?.room?.location?.country}`}
                         time={new Date(props.weather.room.current.last_updated).toLocaleTimeString()}
                         temperature={props.weather.room.current.temp_c}
                         image={`http:${props.weather.room.current.condition.icon}`}
@@ -86,33 +92,34 @@ function Weather(props) {
                 {
                     props.sensors && 
                     <div className='weather-template'>
-                    <div className="weather-template_header">
-                        <p className='title'>{'Dobhi Bihar India'}</p>
-                        <p>{new Date(props.sensors.time).toLocaleTimeString()}</p>
-                    </div>
-                    <div className="flexbox">
-                        <div style={{width:'100px',height:'100px'}}>
-                            <img src="http://cdn.weatherapi.com/weather/64x64/night/143.png" alt="weather icon" width="100%" height="100%"/>
+                        <div className="weather-template_header">
+                            <p className='title'>{'Kalipark NewTown WestBengal'}</p>
+                            <p>{new Date(props.sensors.time).toLocaleTimeString()}</p>
                         </div>
-                        <div>
-                            <p className='big-text'>{props.sensors.temp}°C </p>
-                        </div>
-                        <div>
-                            <div className='weather-template-details'>
-                                <div className="flexbox">
-                                    <p className='paragrpah'>Temperature</p>
-                                    <p className='paragrpah'>{props.sensors.temp}°C</p>
+                        <div className="flexbox">
+                            <div style={{width:'100px',height:'100px'}}>
+                                <img src="http://cdn.weatherapi.com/weather/64x64/night/143.png" alt="weather icon" width="100%" height="100%"/>
+                            </div>
+                            <div>
+                                <p className='big-text'>{props.sensors.temp}°C </p>
+                            </div>
+
+                            <div>
+                                <div className='weather-template-details'>
+                                    <div className="flexbox">
+                                        <p className='paragrpah'>Temperature</p>
+                                        <p className='paragrpah'>{props.sensors.temp}°C</p>
+                                    </div>
+                                    <Divider  />
+                                    <div className="flexbox">
+                                        <p className='paragrpah'>Humidity</p>
+                                        <p className='paragrpah'>{props.sensors.humidity}</p>
+                                    </div>
+                                    <Divider  />
                                 </div>
-                                <Divider  />
-                                <div className="flexbox">
-                                    <p className='paragrpah'>Humidity</p>
-                                    <p className='paragrpah'>{props.sensors.humidity}</p>
-                                </div>
-                                <Divider  />
                             </div>
                         </div>
                     </div>
-                </div>
                 }
                 
             </div>

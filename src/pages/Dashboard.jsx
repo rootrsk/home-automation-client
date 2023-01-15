@@ -1,10 +1,9 @@
-import React from 'react'
-import { connect, useDispatch, useSelector } from 'react-redux';
-import BoardStatus from '../components/BoardStatus';
 import Radial from '../components/charts/Radial';
-import RealtimeChart from '../components/charts/RealtimeChart';
-import SwitchButton from '../components/SwitchButton';
+import BoardStatus from '../components/BoardStatus';
 import { emitEvent } from '../redux/reducers/socket';
+import SwitchButton from '../components/SwitchButton';
+import RealtimeChart from '../components/charts/RealtimeChart';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 function Dashboard(props) {
     const dispatch = useDispatch()
